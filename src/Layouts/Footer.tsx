@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <div className="bg-gray-100 flex flex-col">
+        <div className="bg-gray-100 border border-gray-300 flex flex-col mt-14">
             {/* Conteúdo principal em grid */}
             <div className="grid grid-cols-3 gap-4 py-8 px-7">
                 <div>

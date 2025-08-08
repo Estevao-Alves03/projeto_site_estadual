@@ -1,22 +1,12 @@
-import * as Tabs from "@radix-ui/react-tabs";
 import { RxDashboard, RxPencil2, RxActivityLog, RxGear } from "react-icons/rx";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/Components/ui/card";
-import InfoCard from "../Layouts/InfoCard";
+import * as Tabs from "@radix-ui/react-tabs";
+import DashboardContent from "./ComponentsAdmin/Dashboard/DashboardContent";
 import { useState } from "react";
-import {
-  MdArticle,
-  MdCheckCircle,
-  MdVisibility,
-  MdPerson,
-  MdGroups,
-  MdFlashOn,
-} from "react-icons/md";
+import KeyStatisticsDashboard from "./ComponentsAdmin/Dashboard/KeyStatisticsDashboard";
+import PerformanceEditors from "./ComponentsAdmin/Dashboard/PerformanceEditors";
+import KeyStatisticsEditors from "./ComponentsAdmin/Editors/KeyStatisticsEditors";
+import CardEditors from "./ComponentsAdmin/Editors/CardEditors";
+
 
 function Admin() {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -53,7 +43,7 @@ function Admin() {
                 icon: <RxActivityLog />,
               },
               {
-                label: "Configurações",
+                label: "Configurações Do Perfil",
                 icon: <RxGear />,
               },
             ].map(({ label, icon }) => (
@@ -79,86 +69,11 @@ function Admin() {
               </Tabs.Trigger>
             ))}
           </Tabs.List>
-          <Tabs.Content value="Dashboard" className="pt-16">
-            <div className="grid grid-cols-3 grid-rows-3 gap-4">
-              <InfoCard
-                title="Total de Notícias"
-                value={25}
-                icon={<MdArticle className="text-white" />}
-                bgColor="bg-blue-100"
-                borderColor="border-blue-300"
-                iconBg="bg-blue-600"
-                textColor="text-blue-900"
-              />
-              <InfoCard
-                title="Publicadas Hoje"
-                value={3}
-                icon={<MdCheckCircle className="text-white" />}
-                bgColor="bg-green-100"
-                borderColor="border-green-300"
-                iconBg="bg-green-600"
-                textColor="text-green-900"
-              />
-              <InfoCard
-                title="Visualizações"
-                value="15.420"
-                icon={<MdVisibility className="text-white" />}
-                bgColor="bg-purple-100"
-                borderColor="border-purple-300"
-                iconBg="bg-purple-600"
-                textColor="text-purple-800"
-              />
-              <InfoCard
-                title="Editores Ativos"
-                value={2}
-                icon={<MdPerson className="text-white" />}
-                bgColor="bg-orange-100"
-                borderColor="border-orange-300"
-                iconBg="bg-orange-500"
-                textColor="text-orange-800"
-              />
-              <InfoCard
-                title="Total de Editores"
-                value={3}
-                icon={<MdGroups className="text-white" />}
-                bgColor="bg-red-100"
-                borderColor="border-red-300"
-                iconBg="bg-red-500"
-                textColor="text-red-800"
-              />
-              <InfoCard
-                title="Uptime"
-                value="99.9%"
-                icon={<MdFlashOn className="text-white" />}
-                bgColor="bg-cyan-100"
-                borderColor="border-cyan-300"
-                iconBg="bg-teal-600"
-                textColor="text-teal-900"
-              />
-            </div>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">
-                  Atividade Recente
-                </CardTitle>
-                <CardDescription className="text-base font-serif text-zinc-500">
-                  Últimas ações realizadas no sistema
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-gray-200 flex items-center justify-between p-3 rounded-md">
-                  <div>
-                    <span className="w-8 h-8 rounded-full bg-blue-400" />
-                    <h1>teste</h1>
-                    <p>teste de texto grande</p>
-                  </div>
-                  <div>
-                    <span>07/08/2025 - 14:29</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </Tabs.Content>
+          <KeyStatisticsDashboard/>
+          <DashboardContent/> 
+          <PerformanceEditors/>  
+          <KeyStatisticsEditors/>
+          <CardEditors/>   
         </Tabs.Root>
       </div>
     </div>

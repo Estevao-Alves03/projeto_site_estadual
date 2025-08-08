@@ -20,7 +20,7 @@ function App() {
         <Route path='/UltimasNotícias' element={<UltimasNotícias/>}/>
         <Route path='/Política' element={<Política/>}/> */}
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </Router>
   );
 }
