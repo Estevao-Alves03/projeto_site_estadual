@@ -6,6 +6,7 @@ import KeyStatisticsDashboard from "./ComponentsAdmin/Dashboard/KeyStatisticsDas
 import PerformanceEditors from "./ComponentsAdmin/Dashboard/PerformanceEditors";
 import KeyStatisticsEditors from "./ComponentsAdmin/Editors/KeyStatisticsEditors";
 import CardEditors from "./ComponentsAdmin/Editors/CardEditors";
+import KeyStatisticsActivities from "./ComponentsAdmin/Activities/KeyStatisticsActivities";
 
 
 function Admin() {
@@ -73,7 +74,8 @@ function Admin() {
           <DashboardContent/> 
           <PerformanceEditors/>  
           <KeyStatisticsEditors/>
-          <CardEditors/>   
+          <CardEditors/>
+          <KeyStatisticsActivities/>   
         </Tabs.Root>
       </div>
     </div>
