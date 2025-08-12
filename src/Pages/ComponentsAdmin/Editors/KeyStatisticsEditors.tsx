@@ -1,13 +1,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { IoIosSearch } from "react-icons/io";
 import { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../../../components/ui/card";
+import {Card,} from "../../../components/ui/card";
 import {
   Select,
   SelectContent,
@@ -87,7 +81,7 @@ function KeyStatisticsEditors() {
           {stats.map((stat, index) => (
             <Card
               key={index}
-              className={`text-center p-6 ${stat.color} ${stat.textColor} border ${stat.borderColor}`}
+              className={`text-center p-4 ${stat.color} ${stat.textColor} border ${stat.borderColor}`}
             >
               <h2 className="text-3xl font-bold mb-2">{stat.value}</h2>
               <p>{stat.label}</p>

@@ -8,9 +8,42 @@ import KeyStatisticsEditors from "./ComponentsAdmin/Editors/KeyStatisticsEditors
 import CardEditors from "./ComponentsAdmin/Editors/CardEditors";
 import KeyStatisticsActivities from "./ComponentsAdmin/Activities/KeyStatisticsActivities";
 
-
 function Admin() {
   const [activeTab, setActiveTab] = useState("Dashboard");
+
+  // Dados mockados para os editores
+  const editores = [
+    {
+      id: "1",
+      nome: "Maria Santos",
+      email: "maria.santos@portalmunicipal.gov.br",
+      dataCriacao: "01/01/2024, 07:00",
+      status: "Ativo" as const,
+      cargo: "Editor Ativo",
+      acesso: "Apenas visualização",
+      metricas: {
+        artigos: 12,
+        views: "2.4k",
+        desde: "Jan. 2024"
+      },
+      inicialAvatar: "M"
+    },
+    {
+      id: "2",
+      nome: "João Silva",
+      email: "joao.silva@portal.com",
+      dataCriacao: "15/03/2023, 14:30",
+      status: "Inativo" as const,
+      cargo: "Editor Chefe",
+      acesso: "Acesso total",
+      metricas: {
+        artigos: 24,
+        views: "5.7k",
+        desde: "Mar. 2023"
+      },
+      inicialAvatar: "J"
+    }
+  ];
 
   return (
     <div className="p-6 py-7">
@@ -70,12 +103,26 @@ function Admin() {
               </Tabs.Trigger>
             ))}
           </Tabs.List>
-          <KeyStatisticsDashboard/>
-          <DashboardContent/> 
-          <PerformanceEditors/>  
-          <KeyStatisticsEditors/>
-          <CardEditors/>
-          <KeyStatisticsActivities/>   
+          
+          {/* Conteúdo das abas */}
+          <Tabs.Content value="Dashboard">
+            <KeyStatisticsDashboard/>
+            <DashboardContent/> 
+            <PerformanceEditors/>
+          </Tabs.Content>
+          
+          <Tabs.Content value="Editores">
+            <KeyStatisticsEditors/>
+            <CardEditors editores={editores}/>
+          </Tabs.Content>
+          
+          <Tabs.Content value="Atividades">
+            <KeyStatisticsActivities/>
+          </Tabs.Content>
+          
+          <Tabs.Content value="Configurações Do Perfil">
+            {/* Adicione o conteúdo das configurações aqui */}
+          </Tabs.Content>
         </Tabs.Root>
       </div>
     </div>

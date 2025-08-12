@@ -1,15 +1,45 @@
 import * as Tabs from "@radix-ui/react-tabs";
+import {Card,} from "../../../components/ui/card";
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 
 function KeyStatisticsActivities() {
+  const stats = [
+    {
+      value: 24,
+      label: "Açoes hoje",
+      color: "bg-white",
+      textColor: "text-green-800",
+      borderColor: "border-green-300",
+    },
+    {
+      value: 156,
+      label: "Esta semanda",
+      color: "bg-white",
+      textColor: "text-red-800",
+      borderColor: "border-red-300",
+    },
+    {
+      value: 3,
+      label: "Usuarios ativos",
+      color: "bg-white",
+      textColor: "text-blue-800",
+      borderColor: "border-blue-300",
+    },
+    {
+      value: 12,
+      label: "Ultimas 24hrs",
+      color: "bg-white",
+      textColor: "text-purple-800",
+      borderColor: "border-purple-300",
+    },
+  ];
   return (
     <div className="mt-14">
       <Tabs.Content value="Atividades">
@@ -52,6 +82,17 @@ function KeyStatisticsActivities() {
               </SelectContent>
             </Select>
           </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
+          {stats.map((stat, index) => (
+            <Card
+              key={index}
+              className={`text-center p-4 ${stat.color} ${stat.textColor}`}
+            >
+              <h2 className="text-3xl font-bold mb-2">{stat.value}</h2>
+              <p>{stat.label}</p>
+            </Card>
+          ))}
         </div>
       </Tabs.Content>
     </div>
