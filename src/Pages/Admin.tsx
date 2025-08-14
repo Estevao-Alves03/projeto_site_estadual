@@ -1,4 +1,4 @@
-import { RxDashboard, RxPencil2, RxActivityLog, RxGear } from "react-icons/rx";
+import { RxDashboard, RxPencil2, RxActivityLog, RxGear} from "react-icons/rx";
 import * as Tabs from "@radix-ui/react-tabs";
 import DashboardContent from "./ComponentsAdmin/Dashboard/DashboardContent";
 import { useState } from "react";
@@ -7,6 +7,10 @@ import PerformanceEditors from "./ComponentsAdmin/Dashboard/PerformanceEditors";
 import KeyStatisticsEditors from "./ComponentsAdmin/Editors/KeyStatisticsEditors";
 import CardEditors from "./ComponentsAdmin/Editors/CardEditors";
 import KeyStatisticsActivities from "./ComponentsAdmin/Activities/KeyStatisticsActivities";
+import ActivityLog from "./ComponentsAdmin/Activities/ActivitiyLogs";
+import Profile from "./ComponentsAdmin/Profile/Profile";
+import { MdPerson } from "react-icons/md";
+
 
 function Admin() {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -77,7 +81,11 @@ function Admin() {
                 icon: <RxActivityLog />,
               },
               {
-                label: "Configurações Do Perfil",
+                label: "Perfil",
+                icon: <MdPerson />,
+              },
+              {
+                label: "Configurações Do Site",
                 icon: <RxGear />,
               },
             ].map(({ label, icon }) => (
@@ -118,9 +126,14 @@ function Admin() {
           
           <Tabs.Content value="Atividades">
             <KeyStatisticsActivities/>
+            <ActivityLog/>
           </Tabs.Content>
           
-          <Tabs.Content value="Configurações Do Perfil">
+          <Tabs.Content value="Perfil">
+            <Profile/>
+          </Tabs.Content>
+          
+          <Tabs.Content value="Perfil">
             {/* Adicione o conteúdo das configurações aqui */}
           </Tabs.Content>
         </Tabs.Root>
