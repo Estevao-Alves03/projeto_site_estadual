@@ -10,6 +10,7 @@ import KeyStatisticsActivities from "./ComponentsAdmin/Activities/KeyStatisticsA
 import ActivityLog from "./ComponentsAdmin/Activities/ActivitiyLogs";
 import Profile from "./ComponentsAdmin/Profile/Profile";
 import { MdPerson } from "react-icons/md";
+import Settings from "./ComponentsAdmin/SiteSettings/Settings";
 
 
 function Admin() {
@@ -133,8 +134,8 @@ function Admin() {
             <Profile/>
           </Tabs.Content>
           
-          <Tabs.Content value="Perfil">
-            {/* Adicione o conteúdo das configurações aqui */}
+          <Tabs.Content value="Configurações Do Site">
+            <Settings/>
           </Tabs.Content>
         </Tabs.Root>
       </div>

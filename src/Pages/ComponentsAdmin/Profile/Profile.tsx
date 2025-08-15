@@ -180,22 +180,22 @@ function Profile() {
         </Card>
         <div className="flex items-center justify-between mt-6">
           <div className="flex items-center">
-            <Button className="bg-white text-red-600 font-semibold text-sm border hover:text-gray-900 hover:bg-red-100">
-              <MdOutlineOutput className="mr-1" />
+            <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-white text-red-600 border hover:text-gray-900 hover:bg-red-100">
+              <MdOutlineOutput className="mr-2 mt-0.5 text-xl" />
               Sair da Conta
-            </Button>
+            </button>
           </div>
 
           <div className="flex items-center gap-3">
-            <Button className="bg-white text-black border hover:bg-gray-100">
-              <IoClose className="mr-1" />
+            <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-white text-black border hover:bg-gray-100">
+              <IoClose className="mr-2 mt-0.5 text-xl" />
               Cancelar
-            </Button>
+            </button>
 
-            <Button className="bg-green-700 text-white border hover:bg-green-800">
-              <IoSaveOutline className="mr-1" />
+            <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-green-700 text-white border hover:bg-green-800">
+              <IoSaveOutline className="mr-2 mt-0.5 text-xl" />
               Salvar alterações
-            </Button>
+            </button>
           </div>
         </div>
       </Tabs.Content>
