@@ -7,6 +7,7 @@ import Esportes from './Pages/Esportes';
 import Destaques from './Pages/Destaques';
 import UltimasNotícias from './Pages/UltimasNotícias';
 import Política from './Pages/Política';
+import Login from './Pages/Login';
 
 function App() {
   return (
@@ -15,12 +16,13 @@ function App() {
       <ButtonsTabs/>
       <Routes>
         <Route path='/Admin' element={<Admin/>}/>
+        {/* <Route path='/Login' element={<Login/>}/> */}
         {/* <Route path='/Esportes' element={<Esportes/>}/>
         <Route path='/Destaques' element={<Destaques/>}/>
         <Route path='/UltimasNotícias' element={<UltimasNotícias/>}/>
         <Route path='/Política' element={<Política/>}/> */}
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </Router>
   );
 }
