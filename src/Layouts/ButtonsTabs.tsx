@@ -2,7 +2,17 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function ButtonsTabs({ counts = { ultimas: 4, politica: 2, esportes: 3, Infraestrutura: 5, Saúde: 6, Cultura: 4, Educação: 7} }) {
+function ButtonsTabs({
+  counts = {
+    ultimas: 4,
+    politica: 2,
+    esportes: 3,
+    Infraestrutura: 5,
+    Saúde: 6,
+    Cultura: 4,
+    Educação: 7,
+  },
+}) {
   const [activeTab, setActiveTab] = useState("Ultimas Notícias");
 
   return (
@@ -12,7 +22,11 @@ function ButtonsTabs({ counts = { ultimas: 4, politica: 2, esportes: 3, Infraest
           { label: "Ultimas Notícias", count: counts.ultimas, key: "ultimas" },
           { label: "Política", count: counts.politica, key: "politica" },
           { label: "Esportes", count: counts.esportes, key: "esportes" },
-          { label: "Infraestrutura", count: counts.Infraestrutura, key: "Infraestrutura" },
+          {
+            label: "Infraestrutura",
+            count: counts.Infraestrutura,
+            key: "Infraestrutura",
+          },
           { label: "Saúde", count: counts.Saúde, key: "Saúde" },
           { label: "Cultura", count: counts.Cultura, key: "Cultura" },
           { label: "Educação", count: counts.Educação, key: "Educação" },
@@ -50,7 +64,7 @@ function ButtonsTabs({ counts = { ultimas: 4, politica: 2, esportes: 3, Infraest
 
       <div className="text-zinc-500">
         <Link
-          to="/admin" 
+          to="/admin"
           className={`relative group flex items-center gap-2 h-full ${
             activeTab === "Admin" ? "text-red-900" : "group-hover:text-zinc-500"
           }`}
