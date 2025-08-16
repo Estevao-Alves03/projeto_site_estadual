@@ -1,5 +1,5 @@
 import { LuCalendar, LuClock, LuDot, LuSun } from "react-icons/lu";
-import { Separator } from "../Components/ui/separator";
+import { Separator } from "../components/ui/separator";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -7,35 +7,34 @@ import { useState } from "react";
 
 function Navbar() {
   const [activeTab, setActiveTab] = useState("Ultimas Notícias");
+  const [isAdmin, setIsAdmin] = useState(false);
   return (
     <div className="px-64">
       <div className="flex items-center justify-between pt-3 pb-1">
         {/* topo do site */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 text-zinc-500">
             <LuCalendar className="w-4 h-4" />
             <p>quinta-feira, 14 de agosto de 2025</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 text-zinc-500">
             <LuClock className="w-4 h-4" />
             <p>21:49</p>
           </div>
         </div>
         <div className="text-zinc-500 flex gap-3 items-center">
           <Link
-            to="/admin"
+            to={isAdmin ? "/" : "/admin"}
             className={`relative group flex items-center gap-2 ${
-              activeTab === "Admin"
-                ? "text-red-900"
-                : "group-hover:text-zinc-500"
+              isAdmin ? "text-red-900" : "group-hover:text-zinc-500"
             }`}
-            onClick={() => setActiveTab("Admin")}
+            onClick={() => setIsAdmin(!isAdmin)}
           >
             <IoSettingsOutline className="text-xl" />
-            <span>Admin</span>
+            <span>{isAdmin ? "Sair Admin" : "Admin"}</span>
             <span
               className={`absolute bottom-[-20px] left-0 h-0.5 ${
-                activeTab === "Admin" ? "bg-red-900 w-full" : "bg-zinc-500 w-0"
+                isAdmin ? "bg-red-900 w-full" : "bg-zinc-500 w-0"
               } group-hover:w-full transition-all duration-300`}
             />
           </Link>

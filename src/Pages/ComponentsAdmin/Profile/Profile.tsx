@@ -60,100 +60,151 @@ function Profile() {
             </p>
           </div>
         </div>
-        {/* Primeiro card informaçoes do perfil */}
-        <Card className="mt-7">
-          <CardHeader>
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center">
-                <MdPerson className="h-9 w-9 text-blue-800" />
+
+        <div className="grid grid-cols-2 gap-4">
+          {/* Primeiro card informaçoes do perfil */}
+          <Card className="mt-7">
+            <CardHeader>
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <MdPerson className="h-8 w-8 text-blue-800" />
+                  <CardTitle className="text-xl font-semibold">
+                    Informações Pessoais
+                  </CardTitle>
+                </div>
+                <span className="border bg-white font-semibold py-1 px-2 rounded-full">
+                  Editor
+                </span>
+              </div>
+              <CardDescription className="text-base font-serif text-zinc-500">
+                Atualize seus dados pessoais
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent className="space-y-6">
+              <div className="flex flex-col items-center">
+                <Avatar className="w-24 h-24 mb-4">
+                  <AvatarImage src="" alt="" />
+                  <AvatarFallback className="text-2xl font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600">
+                    MA
+                  </AvatarFallback>
+                </Avatar>
+                <Button variant="outline" className="w-fit">
+                  Alterar Foto
+                </Button>
+              </div>
+
+              <form className="grid grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label>Nome completo</Label>
+                  <Input
+                    placeholder="Seu nome completo"
+                    className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <Label>Email</Label>
+                  <Input
+                    placeholder="seu.email@exemplo.com"
+                    className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <Label>Telefone</Label>
+                  <Input
+                    placeholder="(00) 00000-0000"
+                    className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <Label>Data de Nascimento</Label>
+                  <Input
+                    type="date"
+                    className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                  />
+                </div>
+              </form>
+
+              <div className="flex justify-end gap-3 pt-4">
+                <Button variant="outline">Cancelar</Button>
+                <Button className="bg-green-700 hover:bg-green-800">
+                  <IoSaveOutline className="mr-2 text-lg" />
+                   Salvar Alterações 
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mt-7">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <GiDialPadlock className="h-8 w-8 text-yellow-500" />
                 <CardTitle className="text-xl font-semibold">
-                  Informações Pessoais
+                  Alterar Senha
                 </CardTitle>
               </div>
-              <span className="border bg-white font-semibold py-1 px-2 rounded-full">
-                Editor
-              </span>
-            </div>
-            <CardDescription className="text-base font-serif text-zinc-500">
-              Atualize seus dados pessoais
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Avatar className="w-24 h-24">
-              <AvatarImage src="" alt="" />
-              <AvatarFallback className="text-2xl font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600">
-                MA
-              </AvatarFallback>
-            </Avatar>
+              <CardDescription className="text-base font-serif text-zinc-500">
+                Mantenha sua conta segura com uma senha forte
+              </CardDescription>
+            </CardHeader>
 
-            <form action="" className="mt-7 grid grid-cols-2 gap-4">
-              <div>
-                <Label>Nome completo</Label>
-                <Input
-                  placeholder="Seu nome completo"
-                  className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                />
-              </div>
-              <div>
-                <Label>Email</Label>
-                <Input
-                  placeholder="seu.email@exemplo.com"
-                  className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                />
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-
-        <Card className="mt-7">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <GiDialPadlock className="h-8 w-8 text-yellow-500 border-black" />
-              <CardTitle className="text-xl font-semibold">
-                Alterar Senha
-              </CardTitle>
-            </div>
-            <CardDescription className="text-base font-serif text-zinc-500">
-              Mantenha sua conta segura com uma senha forte
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form action="">
-              <Label>Senha Atual</Label>
-              <Input
-                placeholder="Digite sua senha atual"
-                className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-              />
-              <div className="mt-7 grid grid-cols-2 gap-4">
-                <div>
-                  <Label>Nova Senha</Label>
+            <CardContent className="space-y-6">
+              <form>
+                <div className="space-y-1">
+                  <Label>Senha Atual</Label>
                   <Input
+                    type="password"
                     placeholder="Digite sua senha atual"
-                    className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
+                    className="px-3 py-2 placeholder:text-zinc-400 border-2"
                   />
                 </div>
-                <div>
-                  <Label>Confirmar Nova Senha</Label>
-                  <Input
-                    placeholder="Digite sua senha atual"
-                    className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                  />
+
+                <div className="mt-6 grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <Label>Nova Senha</Label>
+                    <Input
+                      type="password"
+                      placeholder="Digite a nova senha"
+                      className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <Label>Confirmar Nova Senha</Label>
+                    <Input
+                      type="password"
+                      placeholder="Confirme a nova senha"
+                      className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                    />
+                  </div>
                 </div>
-              </div>
-            </form>
-            <div className="bg-yellow-200 border border-yellow-400 p-4 mt-7 rounded-md ">
-              <h1 className="text-yellow-800 font-bold text-base mb-4">
-                Dicas para uma senha segura
-              </h1>
-              <div className="text-yellow-800 italic font-semibold text-sm">
-                <p>• Use pelo menos 8 caracteres</p>
-                <p>• Inclua letras maiúsculas e minúsculas</p>
-                <p>• Adicione números e símbolos</p>
-                <p>• Evite informações pessoais óbvias</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+
+                <div className="bg-yellow-200 border border-yellow-400 p-4 mt-6 rounded-md">
+                  <h1 className="text-yellow-800 font-bold text-base mb-3">
+                    Dicas para uma senha segura
+                  </h1>
+                  <div className="text-yellow-800 italic font-semibold text-sm space-y-1">
+                    <p>• Use pelo menos 8 caracteres</p>
+                    <p>• Inclua letras maiúsculas e minúsculas</p>
+                    <p>• Adicione números e símbolos</p>
+                    <p>• Evite informações pessoais óbvias</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-end gap-3 pt-4">
+                  <Button variant="outline">Cancelar</Button>
+                  <Button className="bg-green-700 hover:bg-green-800">
+                    <IoSaveOutline className="mr-2 text-lg" />
+                     Salvar Alterações 
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
 
         <Card className="mt-7">
           <CardHeader>
@@ -165,7 +216,7 @@ function Profile() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
                 <Card
                   key={index}
@@ -178,26 +229,12 @@ function Profile() {
             </div>
           </CardContent>
         </Card>
-        <div className="flex items-center justify-between mt-6">
-          <div className="flex items-center">
-            <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-white text-red-600 border hover:text-gray-900 hover:bg-red-100">
-              <MdOutlineOutput className="mr-2 mt-0.5 text-xl" />
-              Sair da Conta
-            </button>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-white text-black border hover:bg-gray-100">
-              <IoClose className="mr-2 mt-0.5 text-xl" />
-              Cancelar
-            </button>
-
-            <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-green-700 text-white border hover:bg-green-800">
-              <IoSaveOutline className="mr-2 mt-0.5 text-xl" />
-              Salvar alterações
-            </button>
-          </div>
-        </div>
+        {/* <div className="flex items-center justify-between mt-6">
+          <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-green-700 text-white border hover:bg-green-800">
+            <IoSaveOutline className="mr-2 mt-0.5 text-xl" />
+            Salvar alterações
+          </button>
+        </div> */}
       </Tabs.Content>
     </div>
   );

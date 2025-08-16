@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { IoSaveOutline } from "react-icons/io5";
+import { Button } from "@/components/ui/button";
 
 function Settings() {
   return (
@@ -25,80 +26,93 @@ function Settings() {
           </div>
         </div>
         {/* configuraçoes gerais do site */}
-        <Card className="mt-7">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">
-              🌐 Configurações Gerais
-            </CardTitle>
-            <CardDescription className="text-base font-serif text-zinc-500">
-              Configurações básicas do portal de notícias
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form action="">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label>Nome do portal</Label>
-                  <Input
-                    placeholder="Digite qual será o nome do site"
-                    className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-7">
+          {/* Card de Configurações Gerais */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold">
+                🌐 Configurações Gerais
+              </CardTitle>
+              <CardDescription className="text-base font-serif text-zinc-500">
+                Configurações básicas do portal de notícias
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <Label>Nome do portal</Label>
+                    <Input
+                      placeholder="Digite qual será o nome do site"
+                      className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label>Slogan</Label>
+                    <Input
+                      placeholder="Crie um slogan"
+                      className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 space-y-1">
+                  <Label>Descrição</Label>
+                  <Textarea
+                    placeholder="Crie uma descrição para o site"
+                    className="px-3 py-2 placeholder:text-zinc-400 border-2 min-h-[100px]"
                   />
                 </div>
-                <div>
-                  <Label>Slogan</Label>
-                  <Input
-                    placeholder="Crie um slogan"
-                    className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                  />
-                </div>
-              </div>
-              <div className="mt-5">
-                <Label>Descrição</Label>
-                <Textarea
-                  placeholder="Crie uma descriçao para o site"
-                  className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                ></Textarea>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
 
-        {/* configuraçoes de contato do site */}
-        <Card className="mt-7">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">
-              📧 Configurações de Contato
-            </CardTitle>
-            <CardDescription className="text-base font-serif text-zinc-500">
-              Configure as informaçoes que ficaram visiveis para o seu público
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form action="">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label>Email de contato</Label>
-                  <Input
-                    placeholder="Digite o email de contato para clientes"
-                    className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                  />
+                <div className="flex justify-end gap-3 mt-6">
+                  <Button variant="outline">Cancelar</Button>
+                  <Button className="bg-green-700 hover:bg-green-800">
+                    <IoSaveOutline className="mr-2 text-lg" />
+                    Salvar Alterações
+                  </Button>
                 </div>
-                <div>
-                  <Label>Telefone de contato</Label>
-                  <Input
-                    placeholder="(99) 99999-9999"
-                    className="px-2 py-1 placeholder:text-zinc-400 mt-1 border-2"
-                  />
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Card de Configurações de Contato */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold">
+                📧 Configurações de Contato
+              </CardTitle>
+              <CardDescription className="text-base font-serif text-zinc-500">
+                Configure as informações que ficarão visíveis para o seu público
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <Label>Email de contato</Label>
+                    <Input
+                      placeholder="Digite o email de contato para clientes"
+                      className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label>Telefone de contato</Label>
+                    <Input
+                      placeholder="(99) 99999-9999"
+                      className="px-3 py-2 placeholder:text-zinc-400 border-2"
+                    />
+                  </div>
                 </div>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-        <div className="flex items-center justify-end mt-7">
-          <button className="flex px-4 py-3 mt-0.5 font-bold text-base rounded-lg bg-green-700 text-white border hover:bg-green-800">
-            <IoSaveOutline className="mr-2 mt-0.5 text-xl" />
-            Salvar alterações
-          </button>
+
+                <div className="flex justify-end gap-3 mt-6">
+                  <Button variant="outline">Cancelar</Button>
+                  <Button className="bg-green-700 hover:bg-green-800">
+                    <IoSaveOutline className="mr-2 text-lg" />
+                    Salvar Alterações
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </Tabs.Content>
     </div>

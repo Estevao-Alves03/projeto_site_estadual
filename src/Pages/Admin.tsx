@@ -1,17 +1,18 @@
-import { RxDashboard, RxPencil2, RxActivityLog, RxGear} from "react-icons/rx";
-import * as Tabs from "@radix-ui/react-tabs";
-import DashboardContent from "./ComponentsAdmin/Dashboard/DashboardContent";
-import { useState } from "react";
+// arquivos
 import KeyStatisticsDashboard from "./ComponentsAdmin/Dashboard/KeyStatisticsDashboard";
-import PerformanceEditors from "./ComponentsAdmin/Dashboard/PerformanceEditors";
-import KeyStatisticsEditors from "./ComponentsAdmin/Editors/KeyStatisticsEditors";
-import CardEditors from "./ComponentsAdmin/Editors/CardEditors";
 import KeyStatisticsActivities from "./ComponentsAdmin/Activities/KeyStatisticsActivities";
+import KeyStatisticsEditors from "./ComponentsAdmin/Editors/KeyStatisticsEditors";
+import DashboardContent from "./ComponentsAdmin/Dashboard/DashboardContent";
 import ActivityLog from "./ComponentsAdmin/Activities/ActivitiyLogs";
-import Profile from "./ComponentsAdmin/Profile/Profile";
-import { MdPerson } from "react-icons/md";
+import PerformanceEditors from "./ComponentsAdmin/Dashboard/PerformanceEditors";
+import CardEditors from "./ComponentsAdmin/Editors/CardEditors";
 import Settings from "./ComponentsAdmin/SiteSettings/Settings";
-
+import Profile from "./ComponentsAdmin/Profile/Profile";
+// icones
+import { RxDashboard, RxPencil2, RxActivityLog, RxGear } from "react-icons/rx";
+import { useState } from "react";
+import { MdPerson } from "react-icons/md";
+import * as Tabs from "@radix-ui/react-tabs";
 
 function Admin() {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -29,9 +30,9 @@ function Admin() {
       metricas: {
         artigos: 12,
         views: "2.4k",
-        desde: "Jan. 2024"
+        desde: "Jan. 2024",
       },
-      inicialAvatar: "M"
+      inicialAvatar: "M",
     },
     {
       id: "2",
@@ -44,98 +45,93 @@ function Admin() {
       metricas: {
         artigos: 24,
         views: "5.7k",
-        desde: "Mar. 2023"
+        desde: "Mar. 2023",
       },
-      inicialAvatar: "J"
-    }
+      inicialAvatar: "J",
+    },
   ];
 
   return (
-    <div className="p-6 py-7">
-      {/* título */}
-      <div>
-        <h1 className="text-3xl font-bold pb-1">Painel De Administração</h1>
-        <span className="text-zinc-500 font-bold">
-          Vizualize informações do sistema
-        </span>
-      </div>
-
+    <div className="py-3">
       {/* abas de menus */}
-      <div className="pt-10">
+      <div className="px-4 sm:px-6 lg:px-8 relative"> 
+        {/* Linha divisória completa */}
+        <div className="absolute left-0 right-0 bottom-[calc(100%-45px)] border-b border-zinc-300" />
+        
         <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
-          <Tabs.List
-            className="relative flex items-center text-zinc-500 text-lg font-serif gap-10
-             after:content-[''] after:absolute after:bottom-[-27px] after:left-0
-             after:w-full after:border-b after:border-zinc-300"
-          >
-            {[
-              {
-                label: "Dashboard",
-                icon: <RxDashboard />,
-              },
-              {
-                label: "Editores",
-                icon: <RxPencil2 />,
-              },
-              {
-                label: "Atividades",
-                icon: <RxActivityLog />,
-              },
-              {
-                label: "Perfil",
-                icon: <MdPerson />,
-              },
-              {
-                label: "Configurações Do Site",
-                icon: <RxGear />,
-              },
-            ].map(({ label, icon }) => (
-              <Tabs.Trigger
-                key={label}
-                value={label}
-                className={`relative group flex items-center gap-2 h-full transition-colors duration-200 ${
-                  activeTab === label
-                    ? "text-blue-900"
-                    : "group-hover:text-zinc-500"
-                }`}
-              >
-                {icon}
-                <span>{label}</span>
-
-                <span
-                  className={`absolute bottom-[-29px] left-0 h-0.5 ${
+          <div className="flex justify-center relative">
+            <Tabs.List
+              className="relative flex items-center text-zinc-500 text-lg font-serif gap-4 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20"
+            >
+              {[
+                {
+                  label: "Dashboard",
+                  icon: <RxDashboard />,
+                },
+                {
+                  label: "Editores",
+                  icon: <RxPencil2 />,
+                },
+                {
+                  label: "Atividades",
+                  icon: <RxActivityLog />,
+                },
+                {
+                  label: "Perfil",
+                  icon: <MdPerson />,
+                },
+                {
+                  label: "Configurações Do Site",
+                  icon: <RxGear />,
+                },
+              ].map(({ label, icon }) => (
+                <Tabs.Trigger
+                  key={label}
+                  value={label}
+                  className={`relative group flex items-center gap-2 h-full transition-colors duration-200 ${
                     activeTab === label
-                      ? "bg-blue-900 w-full"
-                      : "bg-zinc-500 w-0"
-                  } group-hover:w-full transition-all duration-300`}
-                />
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
-          
+                      ? "text-blue-900"
+                      : "group-hover:text-zinc-500"
+                  }`}
+                >
+                  {icon}
+                  <span className="whitespace-nowrap">{label}</span>
+
+                  <span
+                    className={`absolute bottom-[-19px] left-0 h-0.5 ${
+                      activeTab === label
+                        ? "bg-blue-900 w-full"
+                        : "bg-zinc-500 w-0"
+                    } group-hover:w-full transition-all duration-300`}
+                  />
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+          </div>
+
           {/* Conteúdo das abas */}
           <Tabs.Content value="Dashboard">
-            <KeyStatisticsDashboard/>
-            <DashboardContent/> 
-            <PerformanceEditors/>
+            <KeyStatisticsDashboard />
+            <DashboardContent />
+            <PerformanceEditors />
           </Tabs.Content>
-          
+
           <Tabs.Content value="Editores">
-            <KeyStatisticsEditors/>
-            <CardEditors editores={editores}/>
+            <KeyStatisticsEditors />
+            <CardEditors editores={editores} />
           </Tabs.Content>
-          
+
           <Tabs.Content value="Atividades">
-            <KeyStatisticsActivities/>
-            <ActivityLog/>
+            <KeyStatisticsActivities />
+            <ActivityLog />
           </Tabs.Content>
-          
+
           <Tabs.Content value="Perfil">
-            <Profile/>
+            <Profile />
           </Tabs.Content>
-          
+
           <Tabs.Content value="Configurações Do Site">
-            <Settings/>
+            <Settings />
           </Tabs.Content>
         </Tabs.Root>
       </div>
