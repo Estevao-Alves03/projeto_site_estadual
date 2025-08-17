@@ -57,6 +57,7 @@ function ActivityLog() {
     Criou: "📝",
     Excluiu: "🗑️",
     Ativou: "✅",
+    Desativou: "❌"
   };
 
   const [allActivities, setAllActivities] = useState<ActivityItem[]>([]);

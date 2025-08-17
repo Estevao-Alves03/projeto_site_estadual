@@ -8,24 +8,29 @@ import Navbar from "./Layouts/Navbar";
 import Footer from "./Layouts/Footer";
 import ButtonsTabs from "./Layouts/ButtonsTabs";
 import Admin from "./Pages/Admin";
-import Esportes from "./Pages/Esportes";
-import Destaques from "./Pages/Destaques";
-import UltimasNotícias from "./Pages/UltimasNotícias";
-import Política from "./Pages/Política";
+import Sports from "./Pages/Sports";
+import Highlights from "./Pages/Highlights";
+import LatestNews from "./Pages/LatestNews";
+import Policy from "./Pages/Policy";
 import Login from "./Pages/Login";
-import Infraestrutura from "./Pages/Infraestrutura";
-import Saúde from "./Pages/Saude";
-import Cultura from "./Pages/Cultura";
-import Educação from "./Pages/Educacao";
+import Infrastructure from "./Pages/Infrastructure";
+import Health from "./Pages/Health";
+import Culture from "./Pages/Culture";
+import Education from "./Pages/Education";
+import NewsLayout from "./Layouts/LayoutNews/NewsLayout";
+import NewsDetail from "./Layouts/LayoutNews/NewsDetail"; // Você precisará criar este componente
 
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  
+
   // Esconde Navbar e Footer no Login
   const hideLayout = location.pathname === "/Login";
-  
-  // Esconde ButtonsTabs no Admin e no Login
-  const hideTabs = location.pathname === "/admin" || hideLayout;
+
+  // Esconde ButtonsTabs no Admin, Login e Notícia
+  const hideTabs = 
+    location.pathname === "/admin" || 
+    hideLayout ||
+    location.pathname.startsWith("/noticia/");
 
   return (
     <>
@@ -40,23 +45,37 @@ function Layout({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          {/* pagina de abas de administraçao */}
-          <Route path="/Admin" element={<Admin />} />
-          {/* pagina de login para editores e admins */}
-          <Route path="/Login" element={<Login />} />
-          {/* abas principais da pagina */}
-          <Route path="/Destaques" element={<Destaques />} />
-          <Route path="/UltimasNotícias" element={<UltimasNotícias />} />
-          <Route path="/Política" element={<Política />} />
-          <Route path="/Esportes" element={<Esportes />} />
-          <Route path="/Infraestrutura" element={<Infraestrutura />} />
-          <Route path="/Saúde" element={<Saúde />} />
-          <Route path="/Cultura" element={<Cultura />} />=
-          <Route path="/Educação" element={<Educação />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        {/* Login fora do Layout */}
+        <Route path="/Login" element={<Login />} />
+
+        {/* Página de notícia com layout especial */}
+        <Route path="/noticia/:id" element={
+          <NewsLayout>
+            <NewsDetail />
+          </NewsLayout>
+        } />
+
+        {/* Todas as outras páginas usam o Layout padrão */}
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <Routes>
+                <Route path="/Admin" element={<Admin />} />
+                <Route path="/Destaques" element={<Highlights />} />
+                <Route path="/UltimasNoticias" element={<LatestNews />} />
+                <Route path="/Politica" element={<Policy />} />
+                <Route path="/Esportes" element={<Sports />} />
+                <Route path="/Infraestrutura" element={<Infrastructure />} />
+                <Route path="/Saude" element={<Health />} />
+                <Route path="/Cultura" element={<Culture />} />
+                <Route path="/Educacao" element={<Education />} />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
     </Router>
   );
 }

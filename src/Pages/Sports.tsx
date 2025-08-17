@@ -1,4 +1,4 @@
-function Esportes() {
+function Sports() {
   return (
     <div>
     <h1>testando pagina de esportes</h1>
@@ -6,4 +6,4 @@ function Esportes() {
   )
 }
 
-export default Esportes
+export default Sports

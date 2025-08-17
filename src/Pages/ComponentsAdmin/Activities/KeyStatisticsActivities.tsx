@@ -61,23 +61,10 @@ function KeyStatisticsActivities() {
                 <SelectGroup>
                   <SelectItem value="all-actions">Todas as ações</SelectItem>
                   <SelectItem value="creations">Criações</SelectItem>
-                  <SelectItem value="edits">Edites</SelectItem>
+                  <SelectItem value="edits">Edições</SelectItem>
                   <SelectItem value="exclusions">Exclusões</SelectItem>
-                  <SelectItem value="logins">Logins</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-
-            <Select defaultValue="today">
-              <SelectTrigger className="w-[180px] py-5 border border-zinc-300 ">
-                <SelectValue placeholder="Hoje" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="today">Hoje</SelectItem>
-                  <SelectItem value="this-week">Essa semana</SelectItem>
-                  <SelectItem value="this-mounth">Esse mês</SelectItem>
-                  <SelectItem value="all">Todos</SelectItem>
+                  <SelectItem value="logins">Ativação</SelectItem>
+                  <SelectItem value="logins">Desativção</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>

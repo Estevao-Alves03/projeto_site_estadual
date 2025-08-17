@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Educação() {
+function Education() {
   return (
     <div>
       <h1>teste de pagina de educaçao</h1>
@@ -8,4 +8,4 @@ function Educação() {
   )
 }
 
-export default Educação
+export default Education

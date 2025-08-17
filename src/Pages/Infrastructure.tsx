@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Infraestrutura() {
+function Infrastructure() {
   return (
     <div>
       <h1>teste de paginda da Infraestrutura</h1>
@@ -8,4 +8,4 @@ function Infraestrutura() {
   )
 }
 
-export default Infraestrutura
+export default Infrastructure

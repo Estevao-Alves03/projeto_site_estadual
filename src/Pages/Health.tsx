@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Saúde() {
+function Health() {
   return (
     <div>
       <h1>teste de pagina de Saúde</h1>
@@ -8,4 +8,4 @@ function Saúde() {
   )
 }
 
-export default Saúde
+export default Health

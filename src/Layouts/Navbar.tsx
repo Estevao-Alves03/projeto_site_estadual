@@ -56,7 +56,7 @@ function Navbar() {
             />
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-extrabold text-gray-800">
+            <h1 className="'text-4xl font-extrabold text-gray-800'">
               A VOZ DO ESTADO
             </h1>
             <p className="text-zinc-600 mt-2">
