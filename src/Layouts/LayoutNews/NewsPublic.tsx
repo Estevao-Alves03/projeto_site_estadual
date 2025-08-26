@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "../../components/ui/switch";
 import { IoIosAdd } from "react-icons/io";
 import { IoSaveOutline } from "react-icons/io5";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -26,6 +27,8 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 function NewsPublic() {
   const [showExtra, setShowExtra] = useState(false);
+  const [isFeatured, setIsFeatured] = useState(false); // <-- controle destaque
+
   const publicationInfo = {
     date: "Agora",
     status: "Será publicada",
@@ -33,6 +36,18 @@ function NewsPublic() {
 
   const toggleExtraNews = () => {
     setShowExtra(!showExtra);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const formData = {
+      // aqui você pode coletar os outros dados também
+      destaque: isFeatured, // envia true/false
+    };
+
+    console.log("Dados enviados:", formData);
+    // aqui você chama a API Laravel ou JSON Server
   };
 
   return (
@@ -50,7 +65,7 @@ function NewsPublic() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-6">
               {/* Coluna 1 - Campos principais */}
               <div className="space-y-4">
@@ -104,6 +119,20 @@ function NewsPublic() {
                     <Label>Link Externo (opcional)</Label>
                     <Input placeholder="https://exemplo.com" />
                   </div>
+                </div>
+
+                {/* Campo Destaque */}
+                <div className="flex items-center justify-between p-3 border rounded-lg bg-gray-50">
+                  <div>
+                    <Label className="text-gray-700 font-medium">
+                      Colocar em Destaque?
+                    </Label>
+                    <p className="text-sm text-gray-500">
+                      Se ativado, a notícia aparecerá na frente da página
+                      principal.
+                    </p>
+                  </div>
+                  <Switch checked={isFeatured} onCheckedChange={setIsFeatured} />
                 </div>
 
                 {/* Botão Notícia Extra */}
@@ -307,7 +336,7 @@ function NewsPublic() {
                     <IoMdClose className="mr-2 h-4 w-4" />
                     Cancelar
                   </Button>
-                  <Button className="bg-blue-600 hover:bg-blue-700">
+                  <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
                     <IoSaveOutline className="mr-2 h-4 w-4" />
                     Salvar Notícia
                   </Button>

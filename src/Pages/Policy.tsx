@@ -1,7 +1,13 @@
+import NewsCard from "@/Layouts/LayoutNews/NewsCard";
+import LatestNews from "./LatestNews";
+import NewsDetail from "@/Layouts/LayoutNews/NewsDetail";
+
 function Policy() {
   return (
     <div>
-      <h1>testando pagina de Politica</h1>
+      <LatestNews/>
+       <NewsCard/>
+      {/* <NewsDetail/> */}
     </div>
   )
 }
